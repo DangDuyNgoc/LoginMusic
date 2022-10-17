@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập Tài Khoản</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <link rel="shortcut icon" href="./assets/svgIcon/favicon-16x16.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app">
+        <nav class="nav">
+            <div class="nav-heading">
+                <div class="nav-heading-title">
+                    <a href="" class="nav-heading__link">
+                        <img src="../assets/svgIcon/favicon-16x16.png" alt="" class="nav-heading__icon">
+                    </a>
+                    <span class="nav-heading__register">Đăng Nhập</span>
+                </div>
+        
+                <div class="nav-heading__help">
+                    <a href="">Bạn cần giúp đỡ?</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- container -->
+        <div class="container">
+            <div class="container-decor">
+                <a href="" class="container-decor__link">
+                    <span>Relax-Music</span>
+                </a>
+                <span> - Nền tảng nghe nhạc miễn phí</span>
+            
+            </div>
+
+            <form action="" class="form" id="form-1" method="post">
+                <div class="auth-form__header">
+                    <div class="auth-form__btn">
+                        <button class="btn btn-login">
+                            <a href="#" class="auth-form__login active">Đăng Nhập</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+            
+                <div>
+                    <div class="form-main">
+                        <label for="" class="form-label">Full name</label>
+                        <input type="text" id="fullname" class="form-control" name="fullname" placeholder="UserName / Email">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-main">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" name="password" placeholder="Enter your password">
+                        <span class="form-message"></span>
+                    </div>
+            
+                    <!-- <div class="form-main">
+                                <label for="password_confirm" class="form-label">Confirm Password</label>
+                                <input type="password" id="password_confirm" class="form-control" name="password_confirm" placeholder="Enter your password">
+                                <span class="form-message"></span>
+                            </div> -->
+            
+                    <button class="form-submit">Đăng Nhập</button>
+            
+                    <div class="forgot-pass">
+                        <a href="">
+                            Quên Mật Khẩu
+                        </a>
+                    </div>
+            
+                    <div class="others-login">
+                        <div class="others-login__light">
+                            <div class="light"></div>
+                            <span>HOẶC</span>
+                            <div class="light"></div>
+                        </div>
+                        <div class="login-socials">
+                            <div class="login-socials__face">
+                                <a href="" class="login-socials__link">
+                                    <img src="./assets/svgIcon/facebook-svgrepo-com.svg" alt="Kết nối với FaceBook"
+                                        class="svg-icon">
+                                    <span>FaceBook</span>
+                                </a>
+                            </div>
+            
+                            <div class="login-socials__google">
+                                <a href="" class="login-socials__link">
+                                    <img src="./assets/svgIcon/google-svgrepo-com.svg" alt="Kết nối với Gmail">
+                                    <span>Google</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- link to register -->
+                    <div class="register-link">
+                        <div class="register-link__form">
+                            <span>Bạn mới biết đến chúng tôi?</span>
+                            <a href="./Register/register.html">Đăng ký</a>
+                        </div>
+                    </div>
+            </form>
+        </div>
+
+        
+    </div>
+
+    <script src="./assets/css/app.js"></script>
+    <script>
+        validator({
+            form: '#form-1',
+            formGroupSelector: '.form-main',
+            errorSelector: '.form-message',
+            rules: [
+                validator.isRequired('#fullname'),
+                // validator.isRequired('#email'),
+                // validator.isEmail('#email'),
+                // validator.isRequired('#province'),
+                validator.minLength('#password', 6),
+                validator.isRequired('#password_confirm'),
+                validator.confirmPassword('#password_confirm', function() {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Incorrect password')               
+            ],
+            onSubmit: function(data) {
+                console.log(data);
+            }
+        });
+    </script>
+</body>
+</html>
